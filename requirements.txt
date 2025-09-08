@@ -1,0 +1,8 @@
+fastapi[all]           # FastAPI + Starlette + Pydantic
+uvicorn[standard]      # Dev server (with live reload)
+sqlalchemy[asyncio]    # Async database ORM
+asyncpg                # Async PostgreSQL driver
+alembic                # DB migrations
+python-dotenv          # Load .env file for configs
+pydantic-settings
+

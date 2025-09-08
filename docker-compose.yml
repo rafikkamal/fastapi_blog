@@ -1,0 +1,31 @@
+version: "3.9"  # Define the Docker Compose version
+
+services:
+  db:  # Define PostgreSQL database service
+    image: postgres:15  # Use official Postgres 15 image
+    container_name: blog_db  # Name the container
+    restart: always  # Auto-restart if container crashes
+    environment:
+      POSTGRES_USER: blog_user        # DB username
+      POSTGRES_PASSWORD: blog_pass    # DB password
+      POSTGRES_DB: blog_db            # DB name
+    volumes:
+      - db_data:/var/lib/postgresql/data  # Persist data using named volume
+    ports:
+      - "5432:5432"  # Expose DB on localhost:5432
+
+  app:  # Define FastAPI backend service
+    build: .  # Build using Dockerfile in current dir
+    container_name: blog_api  # Container name
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload  # Start FastAPI dev server
+    volumes:
+      - .:/code  # Mount project files inside container for live reload
+    ports:
+      - "8000:8000"  # Expose app on localhost:8000
+    env_file:
+      - .env  # Load environment variables
+    depends_on:
+      - db  # Ensure DB is started first
+
+volumes:
+  db_data:  # Define persistent volume for DB
