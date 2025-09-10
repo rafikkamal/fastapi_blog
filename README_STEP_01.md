@@ -48,6 +48,30 @@ fastapi_blog/
 ├── requirements.txt      # Python dependencies
 └── README.md             # This guide
 
+fastapi_blog/
+├── .env
+├── .dockerignore
+├── alembic/
+│   ├── versions/
+│   ├── env.py
+│   └── script.py.mako
+├── app/
+│   ├── api/
+│   │   └── __init__.py
+│   ├── core/
+│   │   ├── config.py
+│   │   └── database.py
+│   ├── models/
+│   │   ├── base.py
+│   │   └── user.py
+│   ├── schemas/
+│   ├── __init__.py
+│   └── main.py
+├── docker-compose.yml
+├── Dockerfile
+├── requirements.txt
+└── README.md
+
 ---
 
 ## ⚙️ Requirements
