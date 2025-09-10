@@ -93,7 +93,7 @@ curl http://localhost:8000/healthz
 * 403 Forbidden → insufficient role
 * Password strength error → must include uppercase, lowercase, digit, and symbol
 * Enum migration issues → always give your Postgres enums a name
-* Credential mismatch → .env DATABASE_URL must match POSTGRES_* in docker-compose.yml
+* Credential mismatch → `.env` DATABASE_URL must match POSTGRES_* in docker-compose.yml
 
 ---
 
@@ -132,3 +132,13 @@ Seed via CLI
 ```
 docker compose exec app python -m app.management.cli seed:users
 ```
+
+---
+
+### 🩹 Troubleshooting
+
+* 401: Could not validate credentials → Missing/expired token, or wrong Authorization header format.
+* 400: Incorrect email or password → Check credentials.
+* 403: Insufficient permissions → You’re not logged in as super_admin.
+* Import/module errors → Ensure `app/__init__.py`, `app/models/__init__.py`, `app/core/__init__.py` exist.
+* Seeder bcrypt warning (“error reading bcrypt version”) → harmless; pin versions to silence:
