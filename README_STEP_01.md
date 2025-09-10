@@ -24,7 +24,7 @@ A minimal, async-ready FastAPI backend scaffold with:
 ---
 
 ## 📂 Project Structure
-`
+
 fastapi_blog/
 ├── .env                  # Environment variables
 ├── .dockerignore         # Docker ignore file
@@ -41,14 +41,12 @@ fastapi_blog/
 │   │   ├── base.py       # Imports all models for Alembic
 │   │   └── user.py       # User model
 │   ├── schemas/          # Pydantic schemas (added later)
-│   ├── init.py       # Makes 'app' a Python package
+│   ├── __init__.py       # Makes 'app' a Python package
 │   └── main.py           # FastAPI app entry point
 ├── docker-compose.yml    # Defines app and database services
 ├── Dockerfile            # Specifies the application's environment
 ├── requirements.txt      # Python dependencies
 └── README.md             # This guide
-`
-
 
 ---
 
