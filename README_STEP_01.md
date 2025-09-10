@@ -24,7 +24,7 @@ A minimal, async-ready FastAPI backend scaffold with:
 ---
 
 ## 📂 Project Structure
-
+```
 fastapi_blog/
 ├── .env                  # Environment variables
 ├── .dockerignore         # Docker ignore file
@@ -47,7 +47,8 @@ fastapi_blog/
 ├── Dockerfile            # Specifies the application's environment
 ├── requirements.txt      # Python dependencies
 └── README.md             # This guide
-
+```
+`
 fastapi_blog/
 ├── .env
 ├── .dockerignore
@@ -71,7 +72,7 @@ fastapi_blog/
 ├── Dockerfile
 ├── requirements.txt
 └── README.md
-
+`
 ---
 
 ## ⚙️ Requirements
