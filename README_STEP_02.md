@@ -89,12 +89,8 @@ curl http://localhost:8000/healthz
 
 ### ⚠️ Common Pitfalls
 
-401 Unauthorized → missing/expired Bearer token
-
-403 Forbidden → insufficient role
-
-Password strength error → must include uppercase, lowercase, digit, and symbol
-
-Enum migration issues → always give your Postgres enums a name
-
-Credential mismatch → .env DATABASE_URL must match POSTGRES_* in docker-compose.yml
+* 401 Unauthorized → missing/expired Bearer token
+* 403 Forbidden → insufficient role
+* Password strength error → must include uppercase, lowercase, digit, and symbol
+* Enum migration issues → always give your Postgres enums a name
+* Credential mismatch → .env DATABASE_URL must match POSTGRES_* in docker-compose.yml
