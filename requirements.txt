@@ -5,7 +5,8 @@ asyncpg                # Async PostgreSQL driver
 alembic                # DB migrations
 python-dotenv          # Load .env file for configs
 python-jose[cryptography]
-passlib[bcrypt]
+passlib[bcrypt]==1.7.4
+bcrypt==4.0.1
 python-multipart       # needed by OAuth2PasswordRequestForm
 email-validator        # used by Pydantic EmailStr
 pydantic-settings      # Step 1/2 settings
