@@ -17,8 +17,6 @@ We added **user authentication with OAuth2 + JWT** and **role-based authorizatio
 
 ### 📂 Project Structure (new/updated)
 
-### 📂 Project Structure (new/updated)
-
 ```
 app/
 ├── api/
