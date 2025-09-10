@@ -33,6 +33,7 @@ DATABASE_URL=postgresql+asyncpg://blog_user:blog_pass@db:5432/blog_db
 JWT_SECRET=please-change-to-a-long-random-string
 JWT_ALGORITHM=HS256
 ACCESS_TOKEN_EXPIRE_MINUTES=60
+```
 
 ---
 
