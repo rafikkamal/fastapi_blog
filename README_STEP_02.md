@@ -55,8 +55,11 @@ Apply them:
 ---
 
 ### ▶️ Health check
-curl http://localhost:8000/healthz
-`{"status":"ok"}`
+`curl http://localhost:8000/healthz`
+
+```
+{"status":"ok"}
+```
 
 ---
 
