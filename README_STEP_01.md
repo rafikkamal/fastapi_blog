@@ -113,10 +113,10 @@ docker ps --format "table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}"
 
 
 You should see:
-
+`
 blog_api (FastAPI app)
-
 blog_db (Postgres database)
+`
 
 2. API Reachable
 ```
