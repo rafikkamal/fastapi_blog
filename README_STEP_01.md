@@ -73,7 +73,7 @@ ACCESS_TOKEN_EXPIRE_MINUTES=60
 # Optional bootstrap super admin (used in step 2)
 SUPERADMIN_EMAIL=admin@example.com
 SUPERADMIN_PASSWORD=Admin#Pass123
-
+```
 
 ---
 
