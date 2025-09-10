@@ -93,7 +93,7 @@ docker compose up
 ```
 ---
 
-Database Migrations (Alembic)
+## ⚙️ Database Migrations (Alembic)
 1. Generate Initial Migration (Users Table)
 
 ⚠️ Make sure you are in the project root, not inside the alembic/ folder.
@@ -106,12 +106,13 @@ docker compose run --rm -e PYTHONPATH=/code app alembic revision --autogenerate 
 docker compose run --rm -e PYTHONPATH=/code app alembic upgrade head
 ```
 
-✅ Verification Checklist
+---
+
+## ✅ Verification Checklist
 1. Containers Running
 ```
 docker ps --format "table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}"
 ```
-
 
 You should see:
 `
@@ -135,7 +136,6 @@ docker compose run --rm -e PYTHONPATH=/code app alembic current
 docker compose run --rm -e PYTHONPATH=/code app alembic history | tail -n 5
 ```
 
-
 You should see the init revision hash listed.
 
 4. Database Tables Exist
@@ -144,45 +144,28 @@ docker compose exec db psql -U blog_user -d blog_db -c "\dt"
 docker compose exec db psql -U blog_user -d blog_db -c "SELECT * FROM alembic_version;"
 ```
 
-
 users table should appear.
 
 alembic_version should contain the applied revision hash.
 
-⚠️ Common Pitfalls & Fixes
+## ⚠️ Common Pitfalls & Fixes
 
-ModuleNotFoundError: No module named 'app'
+* ModuleNotFoundError: No module named 'app'
 → Ensure app/__init__.py exists.
 → Run Alembic with PYTHONPATH=/code.
-
-Running from wrong folder
+* Running from wrong folder
 → Always run docker compose ... from project root, not inside alembic/.
-
-Pydantic v2 change (BaseSettings moved)
+* Pydantic v2 change (BaseSettings moved)
 → Install pydantic-settings.
-→ Import with:
-
-from pydantic_settings import BaseSettings
-
-
-Alembic script.py.mako missing
-→ Create alembic/script.py.mako manually.
-→ Ensure alembic/versions/ exists:
-
-mkdir -p alembic/versions
-
-
-Async env.py not awaited
-→ End alembic/env.py with:
-
-asyncio.run(run_migrations_online())
-
-
-Alembic logging KeyError: 'formatters'
+→ Import with: `from pydantic_settings import BaseSettings`
+* Alembic script.py.mako missing
+→ Create `alembic/script.py.mako` manually.
+→ Ensure alembic/versions/ exists: ```mkdir -p alembic/versions```
+* Async env.py not awaited
+→ End alembic/env.py with: `asyncio.run(run_migrations_online())`
+* Alembic logging KeyError: 'formatters'
 → Add logging sections in alembic.ini for loggers, handlers, and formatters.
-
-Docker Compose warning: version key obsolete
+* Docker Compose warning: version key obsolete
 → Remove the version: line from docker-compose.yml.
-
-Dockerfile parse errors (comments)
+* Dockerfile parse errors (comments)
 → Place comments on separate lines, not after instructions.
