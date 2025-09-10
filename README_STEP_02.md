@@ -52,11 +52,11 @@ Apply them:
 ### ▶️ Run Services
 `docker compose up -d`
 
+---
 
-** Health check **
-
+### ▶️ Health check
 curl http://localhost:8000/healthz
-# {"status":"ok"}
+`{"status":"ok"}`
 
 ---
 
