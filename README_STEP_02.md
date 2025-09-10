@@ -17,6 +17,28 @@ We added **user authentication with OAuth2 + JWT** and **role-based authorizatio
 
 ### 📂 Project Structure (new/updated)
 
+### 📂 Project Structure (new/updated)
+
+```
+app/
+├── api/
+│   ├── deps.py
+│   └── routes/
+│       ├── auth.py
+│       └── users.py
+├── core/
+│   ├── security.py
+│   └── settings.py       # extended with JWT_* values
+├── crud/
+│   └── crud_user.py
+├── models/
+│   └── user.py
+└── main.py               # includes auth & users routers
+alembic/
+├── versions/
+│   └── 2024090801_create_users.py      # or your timestamp
+```
+
 ---
 
 ### 🔧 Environment Variables
@@ -31,6 +53,7 @@ DATABASE_URL=postgresql+asyncpg://blog_user:blog_pass@db:5432/blog_db
 JWT_SECRET=please-change-to-a-long-random-string
 JWT_ALGORITHM=HS256
 ACCESS_TOKEN_EXPIRE_MINUTES=60
+```
 
 ---
 
@@ -38,36 +61,32 @@ ACCESS_TOKEN_EXPIRE_MINUTES=60
 
 Generate migrations:
 
-docker compose exec app alembic revision --autogenerate -m "auth user"
+```docker compose exec app alembic revision --autogenerate -m "auth user"```
 
 Apply them:
 
-docker compose exec app alembic upgrade head
+```docker compose exec app alembic upgrade head```
 
 ---
 
 ### ▶️ Run Services
-docker compose up -d
+```docker compose up -d```
 
 
 Health check:
 
-curl http://localhost:8000/healthz
-# {"status":"ok"}
+```curl http://localhost:8000/healthz```
+`{"status":"ok"}`
 
 ---
 
 ### ⚠️ Common Pitfalls
 
-401 Unauthorized → missing/expired Bearer token
-
-403 Forbidden → insufficient role
-
-Password strength error → must include uppercase, lowercase, digit, and symbol
-
-Enum migration issues → always give your Postgres enums a name
-
-Credential mismatch → .env DATABASE_URL must match POSTGRES_* in docker-compose.yml
+* 401 Unauthorized → missing/expired Bearer token
+* 403 Forbidden → insufficient role
+* Password strength error → must include uppercase, lowercase, digit, and symbol
+* Enum migration issues → always give your Postgres enums a name
+* Credential mismatch → .env DATABASE_URL must match POSTGRES_* in docker-compose.yml
 
 ---
 
