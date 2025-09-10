@@ -109,10 +109,14 @@ Create three default users (idempotent: safe to run multiple times):
 
 Make sure you’ve run the database migrations first:
 
-```docker compose exec app alembic upgrade head```
+```
+docker compose exec app alembic upgrade head
+```
 
 Run the seeder (module)
-```docker compose exec app python -m app.seeds.seed_users```
+```
+docker compose exec app python -m app.seeds.seed_users
+```
 
 Expected output (first run):
 
@@ -127,4 +131,6 @@ Subsequent runs:
 We provide a simple CLI to run seeding.
 
 Seed via CLI
-```docker compose exec app python -m app.management.cli seed:users```
+```
+docker compose exec app python -m app.management.cli seed:users
+```
