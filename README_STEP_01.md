@@ -1,4 +1,4 @@
-# FastAPI Blog — Step 1 (Bootstrap + Alembic + First Migration)
+## FastAPI Blog — Step 1 (Bootstrap + Alembic + First Migration)
 
 A minimal, async-ready FastAPI backend scaffold with:
 
@@ -24,7 +24,7 @@ A minimal, async-ready FastAPI backend scaffold with:
 ---
 
 ## 📂 Project Structure
-
+`
 fastapi_blog/
 ├── .env                  # Environment variables
 ├── .dockerignore         # Docker ignore file
@@ -47,6 +47,7 @@ fastapi_blog/
 ├── Dockerfile            # Specifies the application's environment
 ├── requirements.txt      # Python dependencies
 └── README.md             # This guide
+`
 
 
 ---
