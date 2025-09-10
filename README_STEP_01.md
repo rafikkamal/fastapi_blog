@@ -79,33 +79,37 @@ SUPERADMIN_PASSWORD=Admin#Pass123
 
 ## 🐳 Build Containers
 
-```bash
+```
 docker compose build
+```
 
 ---
 
 ## 🚀 Run Services
 
-```bash
+```
 docker compose up
-
-
+```
 ---
-
 
 Database Migrations (Alembic)
 1. Generate Initial Migration (Users Table)
 
 ⚠️ Make sure you are in the project root, not inside the alembic/ folder.
-
+```
 docker compose run --rm -e PYTHONPATH=/code app alembic revision --autogenerate -m "init"
+```
 
 2. Apply the Migration
+```
 docker compose run --rm -e PYTHONPATH=/code app alembic upgrade head
+```
 
 ✅ Verification Checklist
 1. Containers Running
+```
 docker ps --format "table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}"
+```
 
 
 You should see:
@@ -115,23 +119,29 @@ blog_api (FastAPI app)
 blog_db (Postgres database)
 
 2. API Reachable
+```
 curl http://localhost:8000/
+```
 
 
 Expected response:
 
-{"message": "Welcome to FastAPI Blog API!"}
+`{"message": "Welcome to FastAPI Blog API!"}`
 
 3. Alembic Version Applied
+```
 docker compose run --rm -e PYTHONPATH=/code app alembic current
 docker compose run --rm -e PYTHONPATH=/code app alembic history | tail -n 5
+```
 
 
 You should see the init revision hash listed.
 
 4. Database Tables Exist
+```
 docker compose exec db psql -U blog_user -d blog_db -c "\dt"
 docker compose exec db psql -U blog_user -d blog_db -c "SELECT * FROM alembic_version;"
+```
 
 
 users table should appear.
