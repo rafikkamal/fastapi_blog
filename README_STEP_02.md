@@ -17,7 +17,25 @@ We added **user authentication with OAuth2 + JWT** and **role-based authorizatio
 
 ### 📂 Project Structure (new/updated)
 
-
+```
+app/
+├── api/
+│   ├── deps.py
+│   └── routes/
+│       ├── auth.py
+│       └── users.py
+├── core/
+│   ├── security.py
+│   └── settings.py       # extended with JWT_* values
+├── crud/
+│   └── crud_user.py
+├── models/
+│   └── user.py
+└── main.py               # includes auth & users routers
+alembic/
+├── versions/
+│   └── 2024090801_create_users.py      # or your timestamp
+```
 
 ---
 
