@@ -1,5 +1,3 @@
-version: "3.9"  # Define the Docker Compose version
-
 services:
   db:  # Define PostgreSQL database service
     image: postgres:15  # Use official Postgres 15 image

@@ -1,3 +1,4 @@
+from __future__ import annotations
 import asyncio
 from logging.config import fileConfig
 
@@ -5,7 +6,7 @@ from sqlalchemy.ext.asyncio import async_engine_from_config
 from sqlalchemy.pool import NullPool
 from alembic import context
 
-from app.core.config import settings
+from app.core.settings import settings
 from app.core.database import Base
 from app.models import base  # import all models so Alembic sees them
 

@@ -4,5 +4,8 @@ sqlalchemy[asyncio]    # Async database ORM
 asyncpg                # Async PostgreSQL driver
 alembic                # DB migrations
 python-dotenv          # Load .env file for configs
-pydantic-settings
-
+python-jose[cryptography]
+passlib[bcrypt]
+python-multipart       # needed by OAuth2PasswordRequestForm
+email-validator        # used by Pydantic EmailStr
+pydantic-settings      # Step 1/2 settings
