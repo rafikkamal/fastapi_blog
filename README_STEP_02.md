@@ -41,19 +41,19 @@ ACCESS_TOKEN_EXPIRE_MINUTES=60
 
 Generate migrations:
 
-docker compose exec app alembic revision --autogenerate -m "auth user"
+`docker compose exec app alembic revision --autogenerate -m "auth user"`
 
 Apply them:
 
-docker compose exec app alembic upgrade head
+`docker compose exec app alembic upgrade head`
 
 ---
 
 ### ▶️ Run Services
-docker compose up -d
+`docker compose up -d`
 
 
-Health check:
+** Health check **
 
 curl http://localhost:8000/healthz
 # {"status":"ok"}
