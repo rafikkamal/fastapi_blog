@@ -14,6 +14,62 @@ Provide pragmatic list endpoints with pagination, filters, and sorting
 
 ---
 
+### 📂 Project Structure (new/updated)
+
+```
+app/
+├── api/
+│   ├── deps.py
+│   └── routes/
+│       ├── auth.py
+│       ├── content.py
+│       ├── categories.py
+│       ├── tags.py
+│       ├── comments.py
+│       ├── likes.py
+│       ├── media.py
+│       └── users.py
+├── core/
+│   ├── auth.py
+│   ├── database.py
+│   ├── permissions.py
+│   ├── security.py
+│   └── settings.py
+├── crud/
+│   ├── crud_content.py
+│   ├── crud_categories.py
+│   ├── crud_tags.py
+│   ├── crud_comments.py
+│   ├── crud_likes.py
+│   ├── crud_media.py
+│   └── crud_user.py
+├── models/
+│   ├── base.py
+│   ├── user.py
+│   ├── content.py
+│   ├── categories.py
+│   ├── tags.py
+│   ├── comments.py
+│   ├── likes.py
+│   └── media.py
+├── schemas/
+│   ├── content.py
+│   ├── categories.py
+│   ├── tags.py
+│   ├── comments.py
+│   ├── likes.py
+│   └── media.py
+├── services/
+│   └── content_service.py
+└── main.py
+alembic/
+├── versions/
+│   └── ######_all_tables.py
+└── env.py
+```
+
+---
+
 ### Entities & Relationships (high-level)
 
 ## Post
